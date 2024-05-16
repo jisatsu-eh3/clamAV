@@ -21,7 +21,7 @@ LOG_FILE="$LOG_DIR/scan_$(date +'%d-%m-%Y').log"
 QUARANTINE_OUTPUT_FILE="$LOG_DIR/quarantine_details_<hostname>_$(date +'%d-%m-%Y').log"
 
 # Execute clamscan with recursive option
-/usr/bin/clamscan --recursive / --log="$LOG_FILE" --move="$QUARANTINE_DIR"
+/usr/bin/clamscan --recursive / --log="$LOG_FILE" --move="$QUARANTINE_DIR" --exclude-dir="^/sys"
 
 # Check if the log file exists
 if [[ ! -f "$LOG_FILE" ]]; then
